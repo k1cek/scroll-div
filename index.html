@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const body = document.querySelector('body');
+        const makeDiv = document.createElement('div');
+        body.style.backgroundColor = "black";
+        body.style.margin = 0;
+        body.style.padding = 0;
+        body.style.height = 1500 + "vh";
+        document.body.appendChild(makeDiv);
+        const div = document.querySelector('div');
+        let size = 15;
+        div.style.width = 100 + "vw";
+        div.style.height = size + "vh";
+        div.style.backgroundColor = "red";
+        div.style.position = "fixed";
+        div.style.left = 0;
+        div.style.top = 0;
+        let grow = true;
+
+        function changeHeight() {
+            if (grow) {
+                size += .5;
+
+            }
+
+            if (size == 50) {
+                div.style.backgroundColor = "blue";
+                grow = !grow;
+
+            }
+
+            if (!grow) {
+                size -= .5;
+            }
+
+            if (size == 0) {
+                div.style.backgroundColor = "red";
+                grow = !grow;
+            }
+            div.style.height = size + "vh";
+
+        }
+
+
+        window.addEventListener('scroll', changeHeight);
+    </script>
+</body>
+
+</html>
